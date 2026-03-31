@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.R. Constructions — Construction & Maçonnerie en Lorraine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    /* =============================================
+   VARIABLES
+============================================= */
+    :root {
+      --anthracite: #1C1F26;
+      --anthracite-90: rgba(28, 31, 38, .93);
+      --beton: #6E7278;
+      --beton-clair: #C4C0B8;
+      --blanc-casse: #F3F0EA;
+      --blanc: #FFFFFF;
+      --accent: #CC4E16;
+      --accent-dark: #A83D10;
+      --accent-glow: rgba(204, 78, 22, .35);
+
+      --f-title: 'Barlow Condensed', sans-serif;
+      --f-body: 'DM Sans', sans-serif;
+
+      --r-sm: 4px;
+      --r-md: 10px;
+      --r-lg: 20px;
+
+      --sh-card: 0 4px 28px -6px rgba(28, 31, 38, .10);
+      --sh-hover: 0 14px 44px -8px rgba(28, 31, 38, .18);
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    /* =============================================
+   RESET & BASE
+============================================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px
+    }
+
+    body {
+      font-family: var(--f-body);
+      color: var(--anthracite);
+      background: var(--blanc-casse);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    ul {
+      list-style: none
+    }
+
+    button {
+      font-family: var(--f-body)
+    }
+
+    /* =============================================
+   UTILITIES
+============================================= */
+    .container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 28px
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px
+    }
+
+    .tag::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      flex-shrink: 0
+    }
+
+    .h2 {
+      font-family: var(--f-title);
+      font-size: clamp(2.6rem, 4.8vw, 3.8rem);
+      font-weight: 900;
+      line-height: .96;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      color: var(--anthracite)
+    }
+
+    .h2 em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    /* scroll reveal */
+    .r {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease)
+    }
+
+    .r.on {
+      opacity: 1;
+      transform: none
+    }
+
+    .r.d1 {
+      transition-delay: .1s
+    }
+
+    .r.d2 {
+      transition-delay: .2s
+    }
+
+    .r.d3 {
+      transition-delay: .3s
+    }
+
+    .r.d4 {
+      transition-delay: .4s
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .r {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+    }
+
+    /* =============================================
+   NAVBAR
+============================================= */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      padding: 22px 0;
+      transition: padding .35s var(--ease), background .35s var(--ease)
+    }
+
+    .nav.s {
+      background: var(--anthracite-90);
+      backdrop-filter: blur(14px);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .07)
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 13px
+    }
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0
+    }
+
+    .logo-text {
+      font-family: var(--f-title);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.25
+    }
+
+    .logo-text small {
+      display: block;
+      font-weight: 300;
+      font-size: 9.5px;
+      letter-spacing: .18em;
+      color: rgba(255, 255, 255, .5);
+      margin-top: 1px
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px
+    }
+
+    .nav-links a {
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .65);
+      transition: color .25s
+    }
+
+    .nav-links a:hover {
+      color: #fff
+    }
+
+    .btn-cta {
+      background: var(--accent);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: var(--r-sm);
+      font-weight: 600 !important;
+      transition: background .25s, transform .25s, box-shadow .25s !important
+    }
+
+    .btn-cta:hover {
+      background: var(--accent-dark) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px var(--accent-glow) !important
+    }
+
+    .btn-cta:active {
+      transform: scale(.98) !important
+    }
+
+    .ham {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 6px
+    }
+
+    .ham span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      transition: transform .3s, opacity .3s
+    }
+
+    .ham.on span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg)
+    }
+
+    .ham.on span:nth-child(2) {
+      opacity: 0
+    }
+
+    .ham.on span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg)
+    }
+
+    .mob {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--anthracite);
+      z-index: 850;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s
+    }
+
+    .mob.on {
+      opacity: 1;
+      pointer-events: all
+    }
+
+    .mob a {
+      font-family: var(--f-title);
+      font-size: 2.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #fff;
+      transition: color .2s
+    }
+
+    .mob a:hover {
+      color: var(--accent)
+    }
+
+    /* =============================================
+   HERO
+============================================= */
+    .hero {
+      min-height: 100dvh;
+      background: var(--anthracite);
+      display: grid;
+      grid-template-rows: 1fr auto;
+      overflow: hidden;
+      position: relative
+    }
+
+    .hero-frame {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 100px 28px 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      align-items: center
+    }
+
+    .hero-left {
+      padding-right: 56px;
+      position: relative;
+      z-index: 2
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(204, 78, 22, .12);
+      border: 1px solid rgba(204, 78, 22, .25);
+      color: #e8855a;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 7px 15px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+      width: fit-content
+    }
+
+    .hero-pill::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 2s ease-in-out infinite;
+      flex-shrink: 0
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1 }
+      50% { opacity: .3 }
+    }
+
+    .hero-h1 {
+      font-family: var(--f-title);
+      font-size: clamp(3rem, 5.6vw, 5.6rem);
+      font-weight: 900;
+      line-height: .91;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: -.02em;
+      margin-bottom: 28px
+    }
+
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--accent)
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, .50);
+      line-height: 1.78;
+      max-width: 440px;
+      margin-bottom: 40px
+    }
+
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      padding: 15px 30px;
+      border-radius: var(--r-sm);
+      border: none;
+      cursor: pointer;
+      transition: background .25s, transform .25s, box-shadow .25s
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px var(--accent-glow)
+    }
+
+    .btn-primary:active {
+      transform: scale(.98)
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, .6);
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color .25s
+    }
+
+    .btn-ghost:hover { color: #fff }
+    .btn-ghost svg { transition: transform .25s }
+    .btn-ghost:hover svg { transform: translateX(4px) }
+
+    /* Right side: stacked images with offset */
+    .hero-right {
+      position: relative;
+      height: 520px;
+      perspective: 800px
+    }
+
+    .hero-img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 92%;
+      height: 100%;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,.5);
+      z-index: 2
+    }
+
+    .hero-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .hero-img-accent {
+      position: absolute;
+      bottom: -30px;
+      right: 0;
+      width: 55%;
+      height: 55%;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: 0 20px 60px -15px rgba(204,78,22,.25);
+      z-index: 3
+    }
+
+    .hero-img-accent img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    /* Decorative element behind images */
+    .hero-deco {
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      width: 120px;
+      height: 120px;
+      border: 2px solid rgba(204,78,22,.2);
+      border-radius: var(--r-md);
+      z-index: 1
+    }
+
+    /* Bottom stats bar */
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,.07);
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 28px
+    }
+
+    .hero-stat-card {
+      flex: 1;
+      padding: 28px 32px;
+      border-right: 1px solid rgba(255,255,255,.07);
+      transition: background .3s
+    }
+
+    .hero-stat-card:last-child { border-right: none }
+
+    .hero-stat-card:hover {
+      background: rgba(255,255,255,.03)
+    }
+
+    .stat-val {
+      font-family: var(--f-title);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1
+    }
+
+    .stat-lbl {
+      font-size: 11px;
+      color: rgba(255, 255, 255, .35);
+      margin-top: 6px;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 95px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255, 255, 255, .25);
+      font-size: 10.5px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      z-index: 4
+    }
+
+    .scroll-bar {
+      width: 38px;
+      height: 1px;
+      background: rgba(255, 255, 255, .15);
+      overflow: hidden;
+      position: relative
+    }
+
+    .scroll-bar::after {
+      content: '';
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      animation: sb 2.2s ease-in-out infinite
+    }
+
+    @keyframes sb {
+      0% { left: -100% }
+      100% { left: 100% }
+    }
+
+    /* =============================================
+   MARQUEE TRUST STRIP
+============================================= */
+    .marquee-wrap {
+      background: var(--accent);
+      overflow: hidden;
+      padding: 13px 0;
+      white-space: nowrap
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 0;
+      animation: marquee 22s linear infinite
+    }
+
+    .marquee-wrap:hover .marquee-track {
+      animation-play-state: paused
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      padding: 0 28px;
+      font-family: var(--f-title);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #fff
+    }
+
+    .marquee-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .5);
+      flex-shrink: 0
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0)
+      }
+
+      100% {
+        transform: translateX(-50%)
+      }
+    }
+
+    /* =============================================
+   SERVICES
+============================================= */
+    .services {
+      background: var(--blanc-casse);
+      padding: 116px 0
+    }
+
+    .services-hd {
+      max-width: 540px;
+      margin-bottom: 68px
+    }
+
+    /* 2-col grid, NOT 3-col equal cards */
+    .srv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(196, 192, 184, .5)
+    }
+
+    .srv {
+      background: var(--blanc-casse);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease)
+    }
+
+    .srv::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width .4s var(--ease)
+    }
+
+    .srv:hover {
+      background: #fff;
+      transform: translateY(-3px);
+      box-shadow: var(--sh-hover);
+      z-index: 1
+    }
+
+    .srv:hover::after {
+      width: 100%
+    }
+
+    .srv-num {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-family: var(--f-title);
+      font-size: 5.5rem;
+      font-weight: 900;
+      color: rgba(28, 31, 38, .035);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none
+    }
+
+    .srv-ico {
+      width: 44px;
+      height: 44px;
+      color: var(--accent);
+      margin-bottom: 22px
+    }
+
+    .srv-t {
+      font-family: var(--f-title);
+      font-size: 1.45rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .025em;
+      margin-bottom: 10px
+    }
+
+    .srv-d {
+      font-size: .875rem;
+      color: var(--beton);
+      line-height: 1.75
+    }
+
+    /* =============================================
+   ARGUMENTS
+============================================= */
+    .args {
+      background: var(--anthracite);
+      padding: 116px 0
+    }
+
+    .args-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.45fr;
+      gap: 80px;
+      align-items: center
+    }
+
+    .args-img {
+      position: relative;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      aspect-ratio: 4/5
+    }
+
+    .args-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s var(--ease)
+    }
+
+    .args-img:hover img {
+      transform: scale(1.04)
+    }
+
+    .args-badge {
+      position: absolute;
+      bottom: 22px;
+      left: 22px;
+      background: var(--accent);
+      color: #fff;
+      padding: 15px 18px;
+      border-radius: var(--r-sm)
+    }
+
+    .args-badge b {
+      display: block;
+      font-family: var(--f-title);
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1
+    }
+
+    .args-badge span {
+      font-size: 11px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      opacity: .82
+    }
+
+    .args-body .tag {
+      color: #e8855a
+    }
+
+    .args-body .tag::before {
+      background: #e8855a
+    }
+
+    .args-body .h2 {
+      color: #fff
+    }
+
+    .arg-list {
+      margin-top: 44px;
+      display: flex;
+      flex-direction: column
+    }
+
+    .arg {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .07);
+      transition: border-color .3s
+    }
+
+    .arg:hover {
+      border-bottom-color: rgba(204, 78, 22, .4)
+    }
+
+    .arg-ico {
+      width: 46px;
+      height: 46px;
+      background: rgba(204, 78, 22, .1);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e8855a;
+      transition: background .3s;
+      flex-shrink: 0
+    }
+
+    .arg:hover .arg-ico {
+      background: rgba(204, 78, 22, .22)
+    }
+
+    .arg-t {
+      font-family: var(--f-title);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: .04em;
+      margin-bottom: 5px
+    }
+
+    .arg-d {
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .45);
+      line-height: 1.72
+    }
+
+    /* =============================================
+   RÉALISATIONS
+============================================= */
+    .real {
+      background: var(--anthracite);
+      padding: 116px 0
+    }
+
+    .real-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+      gap: 24px;
+      flex-wrap: wrap
+    }
+
+    .real-hd .tag { color: var(--accent) }
+
+    .real-hd .h2 { color: #fff }
+
+    .real-hd p {
+      font-size: .875rem;
+      color: rgba(255,255,255,.45);
+      max-width: 320px;
+      line-height: 1.65;
+      text-align: right
+    }
+
+    .gal {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .gi {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--r-md);
+      cursor: pointer;
+      aspect-ratio: 4 / 3
+    }
+
+    .gi img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s var(--ease), filter .4s
+    }
+
+    .gi:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.05)
+    }
+
+    .gi-ov {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(28, 31, 38, .88) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      transition: background .3s
+    }
+
+    .gi:hover .gi-ov {
+      background: linear-gradient(180deg, transparent 30%, rgba(204, 78, 22, .70) 100%)
+    }
+
+    .gi-cap {
+      font-family: var(--f-title);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: .05em
+    }
+
+    .gi-type {
+      font-size: .7rem;
+      color: rgba(255,255,255,.6);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 4px
+    }
+
+    /* =============================================
+   À PROPOS
+============================================= */
+    .about {
+      background: #fff;
+      padding: 116px 0
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 80px;
+      align-items: center
+    }
+
+    .about-txt p {
+      font-size: .975rem;
+      color: #4a4e57;
+      line-height: 1.82;
+      margin-bottom: 18px
+    }
+
+    .about-sig {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 34px;
+      padding-top: 30px;
+      border-top: 1px solid var(--beton-clair)
+    }
+
+    .about-av {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--anthracite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-title);
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.05rem;
+      flex-shrink: 0
+    }
+
+    .about-sn {
+      font-weight: 600;
+      font-size: .93rem;
+      color: var(--anthracite)
+    }
+
+    .about-sr {
+      font-size: .77rem;
+      color: var(--beton);
+      margin-top: 3px;
+      letter-spacing: .07em;
+      text-transform: uppercase
+    }
+
+    .about-img {
+      position: relative;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      aspect-ratio: 4/5
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s var(--ease)
+    }
+
+    .about-img:hover img {
+      transform: scale(1.03)
+    }
+
+    .cert {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #fff;
+      padding: 12px 14px;
+      border-radius: var(--r-sm);
+      box-shadow: var(--sh-card);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px
+    }
+
+    .cert svg {
+      color: var(--accent)
+    }
+
+    .cert span {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--anthracite);
+      text-align: center;
+      line-height: 1.4
+    }
+
+    /* =============================================
+   TÉMOIGNAGES
+============================================= */
+    .testi {
+      background: var(--blanc-casse);
+      padding: 116px 0;
+      overflow: hidden
+    }
+
+    .testi-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    .testi-nav {
+      display: flex;
+      gap: 10px
+    }
+
+    .testi-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid var(--beton-clair);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .25s, background .25s, color .25s;
+      color: var(--anthracite)
+    }
+
+    .testi-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff
+    }
+
+    .testi-track-wrap {
+      position: relative
+    }
+
+    .testi-track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 8px
+    }
+
+    .testi-track::-webkit-scrollbar { display: none }
+
+    .tc {
+      flex: 0 0 calc(50% - 12px);
+      background: #fff;
+      border-radius: var(--r-md);
+      padding: 36px;
+      border: 1px solid rgba(196, 192, 184, .40);
+      scroll-snap-align: start;
+      transition: transform .3s var(--ease), border-color .3s
+    }
+
+    .tc:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent)
+    }
+
+    .tc-q {
+      font-size: 2.8rem;
+      color: var(--accent);
+      font-family: Georgia, serif;
+      line-height: .4;
+      display: block;
+      margin-bottom: 18px
+    }
+
+    .tc-txt {
+      font-size: .955rem;
+      color: #3a3e47;
+      line-height: 1.78;
+      margin-bottom: 26px
+    }
+
+    .tc-foot {
+      display: flex;
+      align-items: center;
+      gap: 13px
+    }
+
+    .tc-av {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid var(--blanc-casse)
+    }
+
+    .tc-av img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .tc-name {
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--anthracite)
+    }
+
+    .tc-from {
+      font-size: .77rem;
+      color: var(--beton);
+      margin-top: 2px
+    }
+
+    .tc-stars {
+      color: var(--accent);
+      font-size: 12px;
+      margin-top: 4px;
+      letter-spacing: 1px
+    }
+
+    /* Progress dots */
+    .testi-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px
+    }
+
+    .testi-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--beton-clair);
+      border: none;
+      cursor: pointer;
+      transition: background .25s, transform .25s;
+      padding: 0
+    }
+
+    .testi-dot.active {
+      background: var(--accent);
+      transform: scale(1.25)
+    }
+
+    /* =============================================
+   CONTACT
+============================================= */
+    .contact {
+      background: var(--anthracite);
+      padding: 116px 0
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 80px;
+      align-items: start
+    }
+
+    .ci .tag {
+      color: #e8855a
+    }
+
+    .ci .tag::before {
+      background: #e8855a
+    }
+
+    .ci .h2 {
+      color: #fff
+    }
+
+    .ci-desc {
+      font-size: .975rem;
+      color: rgba(255, 255, 255, .5);
+      line-height: 1.75;
+      margin: 18px 0 42px
+    }
+
+    .citem {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .07)
+    }
+
+    .citem-ico {
+      width: 42px;
+      height: 42px;
+      background: rgba(204, 78, 22, .1);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e8855a;
+      flex-shrink: 0
+    }
+
+    .citem-lbl {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: rgba(255, 255, 255, .35);
+      margin-bottom: 4px
+    }
+
+    .citem-val {
+      font-size: .93rem;
+      color: #fff;
+      font-weight: 500
+    }
+
+    .cf {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: var(--r-lg);
+      padding: 40px
+    }
+
+    .cf-t {
+      font-family: var(--f-title);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: .04em;
+      margin-bottom: 30px
+    }
+
+    .frow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .fg {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 14px
+    }
+
+    .fg label {
+      font-size: 11.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      color: rgba(255, 255, 255, .45)
+    }
+
+    .fg input,
+    .fg select,
+    .fg textarea {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .11);
+      border-radius: var(--r-sm);
+      padding: 11px 15px;
+      color: #fff;
+      font-family: var(--f-body);
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .25s, background .25s
+    }
+
+    .fg input::placeholder,
+    .fg textarea::placeholder {
+      color: rgba(255, 255, 255, .22)
+    }
+
+    .fg input:focus,
+    .fg select:focus,
+    .fg textarea:focus {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .fg select option {
+      background: var(--anthracite)
+    }
+
+    .fg textarea {
+      resize: vertical;
+      min-height: 96px
+    }
+
+    .fsub {
+      width: 100%;
+      padding: 13px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      transition: background .25s, transform .25s, box-shadow .25s;
+      margin-top: 6px
+    }
+
+    .fsub:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--accent-glow)
+    }
+
+    .fsub:active {
+      transform: scale(.98)
+    }
+
+    /* =============================================
+   FOOTER
+============================================= */
+    .footer {
+      background: #101318;
+      padding: 56px 0 28px
+    }
+
+    .footer-g {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.4fr;
+      gap: 44px;
+      margin-bottom: 44px
+    }
+
+    .fb p {
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .38);
+      line-height: 1.7;
+      margin-top: 14px;
+      max-width: 270px
+    }
+
+    .fc h4 {
+      font-family: var(--f-title);
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: #fff;
+      margin-bottom: 18px
+    }
+
+    .fc ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .fc ul a {
+      font-size: .855rem;
+      color: rgba(255, 255, 255, .38);
+      transition: color .2s
+    }
+
+    .fc ul a:hover {
+      color: rgba(255, 255, 255, .78)
+    }
+
+    .fc-note {
+      font-size: .77rem;
+      color: rgba(255, 255, 255, .25);
+      margin-top: 10px;
+      line-height: 1.6
+    }
+
+    .footer-bot {
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .footer-bot p {
+      font-size: .77rem;
+      color: rgba(255, 255, 255, .22)
+    }
+
+    .footer-bot a {
+      color: rgba(255, 255, 255, .22);
+      transition: color .2s
+    }
+
+    .footer-bot a:hover {
+      color: rgba(255, 255, 255, .5)
+    }
+
+    /* =============================================
+   COUNTERS
+============================================= */
+    .stat-val {
+      transition: none
+    }
+
+    /* =============================================
+   GALLERY STAGGER
+============================================= */
+    .gi:nth-child(1) { animation-delay: .0s }
+    .gi:nth-child(2) { animation-delay: .08s }
+    .gi:nth-child(3) { animation-delay: .16s }
+    .gi:nth-child(4) { animation-delay: .24s }
+    .gi:nth-child(5) { animation-delay: .32s }
+    .gi:nth-child(6) { animation-delay: .40s }
+
+    /* =============================================
+   FLOATING CTA
+============================================= */
+    .float-cta {
+      position: fixed;
+      bottom: 28px;
+      right: 0;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--f-title);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 50px;
+      box-shadow: 0 8px 30px var(--accent-glow);
+      z-index: 400;
+      opacity: 0;
+      transition: transform .5s var(--ease), opacity .5s var(--ease);
+      white-space: nowrap;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .float-cta.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0)
+    }
+
+    .float-cta:hover {
+      background: var(--accent-dark);
+      box-shadow: 0 12px 40px var(--accent-glow)
+    }
+
+    .float-cta:active {
+      transform: translateX(-50%) scale(.97)
+    }
+
+    .float-cta svg {
+      flex-shrink: 0
+    }
+
+    /* =============================================
+   SERVICES CARD STAGGER
+============================================= */
+    .srv-grid .srv:nth-child(1) {
+      transition-delay: .0s
+    }
+
+    .srv-grid .srv:nth-child(2) {
+      transition-delay: .07s
+    }
+
+    .srv-grid .srv:nth-child(3) {
+      transition-delay: .14s
+    }
+
+    .srv-grid .srv:nth-child(4) {
+      transition-delay: .21s
+    }
+
+    .srv-grid .srv:nth-child(5) {
+      transition-delay: .28s
+    }
+
+    .srv-grid .srv:nth-child(6) {
+      transition-delay: .35s
+    }
+
+    /* =============================================
+   SECTION TITLE UNDERLINE ANIMATE
+============================================= */
+    .h2-line {
+      position: relative;
+      display: inline-block
+    }
+
+    .h2-line::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width .8s var(--ease)
+    }
+
+    .h2-line.on::after {
+      width: 100%
+    }
+
+
+    /* =============================================
+   RESPONSIVE
+============================================= */
+    @media(max-width:1024px) {
+      .hero-frame {
+        grid-template-columns: 1fr;
+        padding: 110px 28px 40px;
+        gap: 48px
+      }
+
+      .hero-left {
+        padding-right: 0
+      }
+
+      .hero-right {
+        height: 360px
+      }
+
+      .hero-img-accent {
+        bottom: -20px
+      }
+
+      .hero-deco {
+        display: none
+      }
+
+      .args-inner,
+      .about-inner,
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 48px
+      }
+
+      .args-img {
+        display: none
+      }
+
+      .footer-g {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-links {
+        display: none
+      }
+
+      .ham {
+        display: flex
+      }
+
+      .mob {
+        display: flex
+      }
+
+      .hero-scroll {
+        display: none
+      }
+
+      .hero-right {
+        height: 300px
+      }
+
+      .hero-img-accent {
+        width: 50%;
+        height: 50%
+      }
+
+      .srv-grid {
+        grid-template-columns: 1fr
+      }
+
+      .gal {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px
+      }
+
+      .tc {
+        flex: 0 0 85vw
+      }
+
+      .real-hd {
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      .real-hd p {
+        text-align: left
+      }
+
+      .gal { grid-template-columns: 1fr }
+
+      .frow {
+        grid-template-columns: 1fr
+      }
+
+      .cf {
+        padding: 26px 18px
+      }
+
+      .footer-g {
+        grid-template-columns: 1fr;
+        gap: 28px
+      }
+
+      .footer-bot {
+        flex-direction: column;
+        align-items: flex-start
+      }
+    }
+
+    @media(max-width:480px) {
+      .hero-h1 {
+        font-size: clamp(2.4rem, 10vw, 3.2rem)
+      }
+
+      .hero-stat-card {
+        padding: 16px 14px
+      }
+
+      .stat-val {
+        font-size: 1.6rem
+      }
+
+      .hero-stats {
+        flex-wrap: wrap
+      }
+
+      .hero-right {
+        height: 240px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+    <div class="container">
+      <div class="nav-wrap">
+        <a href="#accueil" class="logo" aria-label="A.R. Constructions — accueil">
+          <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect width="40" height="40" fill="#CC4E16" />
+            <path d="M6 31L13.5 11H17L24.5 31H21L19.6 27H10.9L9.5 31H6ZM11.8 24.2H18.7L15.25 14.4L11.8 24.2Z"
+              fill="white" />
+            <path
+              d="M27 11H30.8C32.6 11 34 11.55 35 12.65C36 13.75 36.5 15.2 36.5 17.05C36.5 18.9 36 20.35 35 21.45C34 22.55 32.6 23.1 30.8 23.1H27V11ZM30.4 20.3C31.4 20.3 32.15 20 32.65 19.4C33.15 18.8 33.4 17.92 33.4 16.9C33.4 15.88 33.15 15.12 32.65 14.6C32.15 14.08 31.4 13.8 30.4 13.8H30V20.3H30.4Z"
+              fill="white" />
+          </svg>
+          <div class="logo-text">A.R. Constructions<small>Maçonnerie &amp; Gros Œuvre</small></div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#realisations">Réalisations</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#contact" class="btn-cta">Devis gratuit</a></li>
+        </ul>
+        <button class="ham" id="ham" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mob" id="mob" role="dialog" aria-modal="true" aria-label="Menu mobile">
+    <a href="#services" class="ml">Services</a>
+    <a href="#realisations" class="ml">Réalisations</a>
+    <a href="#about" class="ml">À propos</a>
+    <a href="#contact" class="ml" style="color:#e8855a">Devis gratuit</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="accueil" aria-label="Bannière principale">
+    <div class="hero-frame">
+      <div class="hero-left">
+        <div class="hero-pill">Construction & Maçonnerie — Lorraine</div>
+        <h1 class="hero-h1">
+          Votre maison,<br>
+          <em>construite</em><br>
+          pour durer
+        </h1>
+        <p class="hero-sub">
+          A.R. Constructions réalise vos projets de construction de maisons individuelles,
+          maçonnerie et gros œuvre en Lorraine depuis 2001. Devis gratuit sous 48h.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+            Devis gratuit
+          </a>
+          <a href="#realisations" class="btn-ghost">
+            Voir nos réalisations
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-deco" aria-hidden="true"></div>
+        <div class="hero-img-main">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=700&fit=crop&q=80" alt="Chantier maçonnerie gros oeuvre" loading="eager">
+        </div>
+        <div class="hero-img-accent">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=500&h=400&fit=crop&q=80" alt="Équipe de construction sur chantier" loading="eager">
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-card">
+        <div class="stat-val" data-count="24" data-suffix="+">24+</div>
+        <div class="stat-lbl">Années d'expérience</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-val" data-count="280" data-suffix="+">280+</div>
+        <div class="stat-lbl">Maisons construites</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-val">48h</div>
+        <div class="stat-lbl">Délai devis</div>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-bar"></div>Défiler
+    </div>
+  </section>
+
+  <!-- MARQUEE TRUST STRIP -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Maçonnerie générale<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Gros œuvre<span class="marquee-dot"></span></span>
+      <span class="marquee-item">24 ans d'expérience<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Construction neuve<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Devis gratuit 48h<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Terrassement<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Ravalement façade<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Garantie décennale<span class="marquee-dot"></span></span>
+      <!-- doublon pour boucle fluide -->
+      <span class="marquee-item">Maçonnerie générale<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Gros œuvre<span class="marquee-dot"></span></span>
+      <span class="marquee-item">24 ans d'expérience<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Construction neuve<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Devis gratuit 48h<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Terrassement<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Ravalement façade<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Garantie décennale<span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services" aria-labelledby="srv-h2">
+    <div class="container">
+      <header class="services-hd">
+        <div class="tag r">Ce que nous faisons</div>
+        <h2 class="h2 r d1" id="srv-h2">Tous travaux<br>du bâtiment</h2>
+      </header>
+      <div class="srv-grid" role="list">
+
+        <article class="srv r" role="listitem">
+          <span class="srv-num" aria-hidden="true">01</span>
+          <svg class="srv-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="18" width="36" height="6" rx="1" />
+            <rect x="4" y="28" width="36" height="6" rx="1" />
+            <rect x="4" y="36" width="36" height="4" rx="1" />
+            <path d="M12 18V10h20v8" />
+          </svg>
+          <h3 class="srv-t">Maçonnerie générale</h3>
+          <p class="srv-d">Murs porteurs, cloisons, fondations, dalles béton. Respect strict des normes DTU, matériaux
+            certifiés, équipe propre sans sous-traitance.</p>
+        </article>
+
+        <article class="srv r d1" role="listitem">
+          <span class="srv-num" aria-hidden="true">02</span>
+          <svg class="srv-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="22,4 40,38 4,38" />
+            <line x1="22" y1="15" x2="22" y2="28" />
+            <circle cx="22" cy="33" r="1.8" fill="currentColor" stroke="none" />
+          </svg>
+          <h3 class="srv-t">Gros œuvre</h3>
+          <p class="srv-d">Structure porteuse, béton armé, chapes, planchers. Prise en charge complète du gros œuvre, de
+            la conception au coulage, avec plans d'exécution.</p>
+        </article>
+
+        <article class="srv r d2" role="listitem">
+          <span class="srv-num" aria-hidden="true">03</span>
+          <svg class="srv-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 38V22L22 8l18 14v16H4z" />
+            <rect x="15" y="27" width="14" height="11" />
+            <line x1="22" y1="8" x2="22" y2="4" />
+          </svg>
+          <h3 class="srv-t">Construction neuve</h3>
+          <p class="srv-d">Maisons individuelles, extensions, garages. Accompagnement du permis de construire jusqu'à la
+            livraison des clés, avec garantie décennale.</p>
+        </article>
+
+        <article class="srv r d3" role="listitem">
+          <span class="srv-num" aria-hidden="true">04</span>
+          <svg class="srv-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="8" width="36" height="28" rx="2" />
+            <line x1="4" y1="18" x2="40" y2="18" />
+            <line x1="14" y1="8" x2="14" y2="36" />
+          </svg>
+          <h3 class="srv-t">Rénovation & Extension</h3>
+          <p class="srv-d">Surélévation, ouverture de mur porteur, rénovation de bâti ancien. Diagnostic préalable
+            inclus. Intervention propre avec protection de vos sols.</p>
+        </article>
+
+        <article class="srv r" role="listitem">
+          <span class="srv-num" aria-hidden="true">05</span>
+          <svg class="srv-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="6" width="36" height="32" rx="2" />
+            <path d="M4 14h36" />
+            <path d="M14 22h16M14 28h10" />
+          </svg>
+          <h3 class="srv-t">Ravalement & Enduits</h3>
+          <p class="srv-d">Ravalement de façade, isolation thermique par l'extérieur (ITE), enduits projetés ou
+            talochés. Résultat soigné, durable, avec garantie décennale.</p>
+        </article>
+
+        <article class="srv r d1" role="listitem">
+          <span class="srv-num" aria-hidden="true">06</span>
+          <svg class="srv-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 38L12 24l10 8 8-18 10 24" />
+            <path d="M4 38h36" />
+          </svg>
+          <h3 class="srv-t">Terrassement & VRD</h3>
+          <p class="srv-d">Préparation de terrain, nivellement, tranchées, réseaux enterrés. Nos propres engins de
+            chantier — pas de sous-traitance, planification maîtrisée.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ARGUMENTS -->
+  <section class="args" id="pourquoi" aria-labelledby="args-h2">
+    <div class="container">
+      <div class="args-inner">
+        <div class="args-img r">
+          <img src="https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?w=800&h=600&fit=crop&q=80" alt="Maçon travaillant sur un chantier" loading="lazy"
+            width="480" height="600">
+          <div class="args-badge"><b data-count="24" data-suffix="">24</b><span>ans d'expérience</span></div>
+        </div>
+        <div class="args-body">
+          <div class="tag r">Pourquoi nous choisir</div>
+          <h2 class="h2 r d1" id="args-h2" style="color:#fff">Un artisan<br>qui tient<br><em>ses engagements</em></h2>
+          <ul class="arg-list" aria-label="Arguments de confiance">
+            <li class="arg r d1">
+              <div class="arg-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg></div>
+              <div>
+                <div class="arg-t">Qualité garantie décennale</div>
+                <p class="arg-d">Chaque chantier est réalisé par notre équipe propre. Matériaux certifiés, finitions
+                  soignées, contrôle qualité à chaque phase. Assurance décennale incluse dans tous nos contrats.</p>
+              </div>
+            </li>
+            <li class="arg r d2">
+              <div class="arg-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg></div>
+              <div>
+                <div class="arg-t">Respect strict des délais</div>
+                <p class="arg-d">Planning défini à la signature, pénalités de retard inscrites au contrat. Vous
+                  connaissez la date de fin dès le premier jour — et nous la tenons.</p>
+              </div>
+            </li>
+            <li class="arg r d3">
+              <div class="arg-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg></div>
+              <div>
+                <div class="arg-t">Devis gratuit & transparent</div>
+                <p class="arg-d">Chiffrage détaillé poste par poste, sans surprise ni ligne floue. Déplacement et
+                  chiffrage 100% gratuits, réponse sous 48h. Aucun engagement à la signature du devis.</p>
+              </div>
+            </li>
+            <li class="arg r">
+              <div class="arg-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg></div>
+              <div>
+                <div class="arg-t">Interlocuteur direct & local</div>
+                <p class="arg-d">Basé à Villers-la-Montagne (54), nous intervenons en Meurthe-et-Moselle, Moselle et départements limitrophes. Antonio Rodrigues se déplace personnellement pour chaque devis. Un vrai interlocuteur, pas un call center.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RÉALISATIONS -->
+  <section class="real" id="realisations" aria-labelledby="real-h2">
+    <div class="container">
+      <div class="real-hd">
+        <div>
+          <div class="tag r">Portfolio</div>
+          <h2 class="h2 r d1" id="real-h2">Nos réalisations</h2>
+        </div>
+        <p class="r d2">Chaque projet est une référence. Sélection de chantiers récents en Lorraine et Grand Est.</p>
+      </div>
+      <div class="gal" role="list" aria-label="Galerie de réalisations">
+        <figure class="gi" role="listitem">
+          <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?w=700&h=525&fit=crop&q=80" alt="Construction maison neuve Longwy" loading="lazy">
+          <div class="gi-ov">
+            <figcaption>
+              <div class="gi-type">Construction neuve</div>
+              <div class="gi-cap">Maison neuve — Longwy (54)</div>
+            </figcaption>
+          </div>
+        </figure>
+        <figure class="gi" role="listitem">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&h=525&fit=crop&q=80" alt="Chantier béton armé fondations" loading="lazy">
+          <div class="gi-ov">
+            <figcaption>
+              <div class="gi-type">Fondations</div>
+              <div class="gi-cap">Béton armé — Nancy (54)</div>
+            </figcaption>
+          </div>
+        </figure>
+        <figure class="gi" role="listitem">
+          <img src="https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?w=700&h=525&fit=crop&q=80" alt="Gros œuvre immeuble en construction" loading="lazy">
+          <div class="gi-ov">
+            <figcaption>
+              <div class="gi-type">Gros œuvre</div>
+              <div class="gi-cap">Gros œuvre — Nancy (54)</div>
+            </figcaption>
+          </div>
+        </figure>
+        <figure class="gi" role="listitem">
+          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=700&h=525&fit=crop&q=80" alt="Extension maison maçonnerie" loading="lazy">
+          <div class="gi-ov">
+            <figcaption>
+              <div class="gi-type">Extension</div>
+              <div class="gi-cap">Extension 42m² — Briey (54)</div>
+            </figcaption>
+          </div>
+        </figure>
+        <figure class="gi" role="listitem">
+          <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=700&h=525&fit=crop&q=80" alt="Rénovation maçonnerie intérieure" loading="lazy">
+          <div class="gi-ov">
+            <figcaption>
+              <div class="gi-type">Rénovation</div>
+              <div class="gi-cap">Rénovation complète — Thionville (57)</div>
+            </figcaption>
+          </div>
+        </figure>
+        <figure class="gi" role="listitem">
+          <img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?w=700&h=525&fit=crop&q=80" alt="Terrassement excavatrice" loading="lazy">
+          <div class="gi-ov">
+            <figcaption>
+              <div class="gi-type">Terrassement</div>
+              <div class="gi-cap">Terrassement — Metz (57)</div>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section class="about" id="about" aria-labelledby="about-h2">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-txt">
+          <div class="tag r">Notre histoire</div>
+          <h2 class="h2 r d1" id="about-h2">Constructeur<br>depuis 2001</h2>
+          <div class="r d2" style="margin-top:30px">
+            <p>A.R. Constructions est une SARL créée en 2001, spécialisée dans la construction de maisons individuelles et tous travaux de maçonnerie. L'entreprise est implantée à Villers-la-Montagne (54920), au cœur de la Lorraine.</p>
+            <p>Sous la direction d'Antonio Rodrigues, nous intervenons sur l'ensemble de la Meurthe-et-Moselle et des zones limitrophes. Pas de sous-traitance, pas de surprises : chaque devis est tenu à l'euro et chaque chantier est suivi directement par le dirigeant.</p>
+            <p>En plus de 24 ans d'activité, A.R. Constructions a livré des centaines de projets pour des particuliers, des professionnels et des collectivités de la région.</p>
+          </div>
+          <div class="about-sig r d3">
+            <div class="about-av" aria-hidden="true">AR</div>
+            <div>
+              <div class="about-sn">Antonio Rodrigues</div>
+              <div class="about-sr">Gérant — A.R. Constructions</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-img r d1">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=480&h=600&fit=crop&q=80"
+            alt="Antonio Rodrigues, gérant A.R. Constructions" loading="lazy" width="480" height="600">
+          <div class="cert" aria-label="SARL depuis 2001">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <polyline points="9 12 11 14 15 10" />
+            </svg>
+            <span>SARL<br>depuis 2001</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES -->
+  <section class="testi" id="temoignages" aria-labelledby="testi-h2">
+    <div class="container">
+      <header class="testi-hd">
+        <div>
+          <div class="tag r">Avis clients</div>
+          <h2 class="h2 r d1" id="testi-h2">Ils nous ont<br>fait confiance</h2>
+        </div>
+        <nav class="testi-nav" aria-label="Navigation témoignages">
+          <button class="testi-btn" id="testi-prev" aria-label="Témoignage précédent">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="testi-btn" id="testi-next" aria-label="Témoignage suivant">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="9 6 15 12 9 18"/></svg>
+          </button>
+        </nav>
+      </header>
+      <div class="testi-track-wrap">
+        <div class="testi-track" id="testiTrack">
+          <article class="tc" aria-label="Témoignage de Pierre Marchal">
+            <span class="tc-q" aria-hidden="true">"</span>
+            <p class="tc-txt">A.R. Constructions a construit notre maison individuelle à Longwy. Délai tenu, budget respecté à l'euro. Antonio est passé sur le chantier chaque semaine. Travail soigné du gros œuvre jusqu'aux finitions. Je recommande sans hésiter à quiconque en Lorraine.</p>
+            <footer class="tc-foot">
+              <div class="tc-av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&q=80" alt="Photo de Pierre Marchal" loading="lazy"></div>
+              <div>
+                <div class="tc-name">Pierre Marchal</div>
+                <div class="tc-from">Construction maison — Longwy (54)</div>
+                <div class="tc-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              </div>
+            </footer>
+          </article>
+          <article class="tc" aria-label="Témoignage de Nadia Ferreira">
+            <span class="tc-q" aria-hidden="true">"</span>
+            <p class="tc-txt">Fondations et dalle béton pour notre local commercial. Équipe ponctuelle, travail propre. Pas une mauvaise surprise sur 3 mois de chantier. Prix conforme au devis initial.</p>
+            <footer class="tc-foot">
+              <div class="tc-av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&q=80" alt="Photo de Nadia Ferreira" loading="lazy"></div>
+              <div>
+                <div class="tc-name">Nadia Ferreira</div>
+                <div class="tc-from">Gros œuvre commercial — Nancy (54)</div>
+                <div class="tc-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+              </div>
+            </footer>
+          </article>
+          <article class="tc" aria-label="Témoignage de Marc Lefebvre">
+            <span class="tc-q" aria-hidden="true">"</span>
+            <p class="tc-txt">Ravalement complet + ITE sur notre immeuble de 6 appartements. Très bon rapport qualité/prix, suivi rigoureux. Nous faisons de nouveau appel à eux cette année.</p>
+            <footer class="tc-foot">
+              <div class="tc-av"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&q=80" alt="Photo de Marc Lefebvre" loading="lazy"></div>
+              <div>
+                <div class="tc-name">Marc Lefebvre</div>
+                <div class="tc-from">Extension & maçonnerie — Metz (57)</div>
+                <div class="tc-stars" aria-label="4 étoiles sur 5">★★★★<span style="color:var(--beton-clair)">★</span></div>
+              </div>
+            </footer>
+          </article>
+        </div>
+        <div class="testi-dots" id="testiDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-labelledby="contact-h2">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="ci">
+          <div class="tag r">Nous contacter</div>
+          <h2 class="h2 r d1" id="contact-h2">Demandez<br>votre devis<br>gratuit</h2>
+          <p class="ci-desc r d2">Décrivez votre projet, on vous rappelle sous 24h. Le déplacement et le chiffrage sont
+            100% gratuits, sans engagement.</p>
+          <div class="r d3">
+            <div class="citem">
+              <div class="citem-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15v1.92z" />
+                </svg></div>
+              <div>
+                <div class="citem-lbl">Téléphone</div>
+                <div class="citem-val">06 XX XX XX XX</div>
+              </div>
+            </div>
+            <div class="citem">
+              <div class="citem-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg></div>
+              <div>
+                <div class="citem-lbl">Email</div>
+                <div class="citem-val">contact@ar-constructions.fr</div>
+              </div>
+            </div>
+            <div class="citem">
+              <div class="citem-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg></div>
+              <div>
+                <div class="citem-lbl">Zone d'intervention</div>
+                <div class="citem-val">Lorraine — 54, 57 et départements limitrophes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="cf r" novalidate aria-label="Formulaire de demande de devis">
+          <h3 class="cf-t">Votre projet en quelques lignes</h3>
+          <div class="frow">
+            <div class="fg">
+              <label for="prenom">Prénom *</label>
+              <input type="text" id="prenom" name="prenom" placeholder="Thomas" autocomplete="given-name" required>
+            </div>
+            <div class="fg">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" placeholder="Dupont" autocomplete="family-name" required>
+            </div>
+          </div>
+          <div class="frow">
+            <div class="fg">
+              <label for="tel">Téléphone *</label>
+              <input type="tel" id="tel" name="tel" placeholder="06 12 34 56 78" autocomplete="tel" required>
+            </div>
+            <div class="fg">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="thomas@exemple.fr" autocomplete="email">
+            </div>
+          </div>
+          <div class="fg">
+            <label for="travaux">Type de travaux *</label>
+            <select id="travaux" name="travaux" required>
+              <option value="" disabled selected>Sélectionnez un type</option>
+              <option>Maçonnerie générale</option>
+              <option>Gros œuvre / Construction neuve</option>
+              <option>Rénovation / Extension</option>
+              <option>Ravalement / Enduits</option>
+              <option>Terrassement</option>
+              <option>Autre / À définir</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="msg">Décrivez votre projet *</label>
+            <textarea id="msg" name="msg" placeholder="Surface, localisation, délai souhaité, budget indicatif..."
+              rows="4" required></textarea>
+          </div>
+          <button type="submit" class="fsub">Envoyer ma demande de devis</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-g">
+        <div class="fb">
+          <a href="#accueil" class="logo" aria-label="A.R. Constructions">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <rect width="40" height="40" fill="#CC4E16" />
+              <path d="M6 31L13.5 11H17L24.5 31H21L19.6 27H10.9L9.5 31H6ZM11.8 24.2H18.7L15.25 14.4L11.8 24.2Z"
+                fill="white" />
+              <path
+                d="M27 11H30.8C32.6 11 34 11.55 35 12.65C36 13.75 36.5 15.2 36.5 17.05C36.5 18.9 36 20.35 35 21.45C34 22.55 32.6 23.1 30.8 23.1H27V11ZM30.4 20.3C31.4 20.3 32.15 20 32.65 19.4C33.15 18.8 33.4 17.92 33.4 16.9C33.4 15.88 33.15 15.12 32.65 14.6C32.15 14.08 31.4 13.8 30.4 13.8H30V20.3H30.4Z"
+                fill="white" />
+            </svg>
+            <div class="logo-text">A.R. Constructions<small>Maçonnerie &amp; Gros Œuvre</small></div>
+          </a>
+          <p>Construction de maisons individuelles et maçonnerie en Lorraine depuis 2001. Devis gratuit, équipe propre, sans sous-traitance.</p>
+          <p class="fc-note" style="margin-top:10px">SIRET&nbsp;: 437 649 916 00024 — NAF&nbsp;: 41.20A<br>ZI 5 Rue Beau Soleil — 54920 Villers-la-Montagne</p>
+        </div>
+        <div class="fc">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Maçonnerie générale</a></li>
+            <li><a href="#services">Gros œuvre</a></li>
+            <li><a href="#services">Construction neuve</a></li>
+            <li><a href="#services">Rénovation & Extension</a></li>
+            <li><a href="#services">Ravalement</a></li>
+            <li><a href="#services">Terrassement</a></li>
+          </ul>
+        </div>
+        <div class="fc">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#temoignages">Témoignages</a></li>
+            <li><a href="#contact">Devis gratuit</a></li>
+          </ul>
+        </div>
+        <div class="fc">
+          <h4>Contact</h4>
+          <ul>
+            <li style="color:rgba(255,255,255,.38);font-size:.855rem">06 XX XX XX XX</li>
+            <li style="color:rgba(255,255,255,.38);font-size:.855rem">contact@ar-constructions.fr</li>
+            <li style="color:rgba(255,255,255,.38);font-size:.855rem">Lorraine — 54920 Villers-la-Montagne</li>
+            <li style="margin-top:14px"><a href="#contact" class="btn-cta"
+                style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;padding:9px 20px">Devis
+                gratuit</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bot">
+        <p>© 2024 A.R. Constructions — Tous droits réservés — <a href="#">Mentions légales</a></p>
+        <p>Maquette non contractuelle — Site en cours de développement</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <button class="float-cta" id="floatCta" aria-label="Discutons de votre projet"
+    onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+      stroke-linecap="round" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+    On discute ?
+  </button>
+
+  <script>
+    // ---- NAV SCROLL + FLOAT CTA ----
+    const nav = document.getElementById('nav');
+    const floatCta = document.getElementById('floatCta');
+    const heroH = document.querySelector('.hero')?.offsetHeight || 600;
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      nav.classList.toggle('s', y > 55);
+      // Float CTA apparaît après le hero, disparaît au contact
+      const contactTop = document.getElementById('contact')?.offsetTop || 99999;
+      const show = y > heroH * 0.7 && y < contactTop - 300;
+      floatCta?.classList.toggle('show', show);
+    }, { passive: true });
+
+    // ---- HAMBURGER ----
+    const ham = document.getElementById('ham');
+    const mob = document.getElementById('mob');
+    ham.addEventListener('click', () => {
+      const open = ham.classList.toggle('on');
+      mob.classList.toggle('on');
+      ham.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    document.querySelectorAll('.ml').forEach(l => {
+      l.addEventListener('click', () => {
+        ham.classList.remove('on');
+        mob.classList.remove('on');
+        ham.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ---- SCROLL REVEAL ----
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          ro.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+    document.querySelectorAll('.r').forEach(el => ro.observe(el));
+
+    // Hero visible immediately
+    document.querySelectorAll('.hero .r').forEach(el => el.classList.add('on'));
+
+    // ---- COUNTER ANIMATION ----
+    function animateCount(el, target, suffix, duration) {
+      let start = null;
+      const step = ts => {
+        if (!start) start = ts;
+        const prog = Math.min((ts - start) / duration, 1);
+        const val = Math.floor(prog * target);
+        el.textContent = val + suffix;
+        if (prog < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(step);
+    }
+
+    const statsObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          statsObs.unobserve(e.target);
+          const counters = e.target.querySelectorAll('[data-count]');
+          counters.forEach(el => {
+            const target = parseInt(el.dataset.count);
+            const suffix = el.dataset.suffix || '';
+            animateCount(el, target, suffix, 1600);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) statsObs.observe(statsEl);
+
+    // Badge "17 ans" in args section
+    const badgeObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          badgeObs.unobserve(e.target);
+          const el = e.target.querySelector('[data-count]');
+          if (el) animateCount(el, parseInt(el.dataset.count), el.dataset.suffix || '', 1200);
+        }
+      });
+    }, { threshold: 0.5 });
+    const badgeEl = document.querySelector('.args-badge');
+    if (badgeEl) badgeObs.observe(badgeEl);
+
+    // (parallax hero removed)
+
+    // ---- GALLERY STAGGER ON REVEAL ----
+    const galObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const items = e.target.querySelectorAll('.gi');
+          items.forEach((item, i) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(24px)';
+            setTimeout(() => {
+              item.style.transition = 'opacity .55s cubic-bezier(.16,1,.3,1), transform .55s cubic-bezier(.16,1,.3,1)';
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, i * 90);
+          });
+          galObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    const galEl = document.querySelector('.gal');
+    if (galEl) galObs.observe(galEl);
+
+    // ---- SERVICES STAGGER ----
+    const srvObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const cards = e.target.querySelectorAll('.srv');
+          cards.forEach((c, i) => {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              c.style.transition = 'opacity .5s cubic-bezier(.16,1,.3,1), transform .5s cubic-bezier(.16,1,.3,1), background .3s, box-shadow .3s';
+              c.style.opacity = '1';
+              c.style.transform = 'translateY(0)';
+            }, i * 80);
+          });
+          srvObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    const srvGrid = document.querySelector('.srv-grid');
+    if (srvGrid) srvObs.observe(srvGrid);
+
+    // ---- TESTIMONIALS CAROUSEL ----
+    const track = document.getElementById('testiTrack');
+    const prevBtn = document.getElementById('testi-prev');
+    const nextBtn = document.getElementById('testi-next');
+    const dotsWrap = document.getElementById('testiDots');
+
+    if (track && prevBtn && nextBtn && dotsWrap) {
+      const cards = track.querySelectorAll('.tc');
+      let currentPage = 0;
+
+      function getStepSize() {
+        return (cards[0]?.offsetWidth || 400) + 24;
+      }
+
+      function getMaxScroll() {
+        return track.scrollWidth - track.clientWidth;
+      }
+
+      function getTotalPages() {
+        const max = getMaxScroll();
+        if (max <= 0) return 1;
+        return Math.ceil(max / getStepSize()) + 1;
+      }
+
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        const pages = getTotalPages();
+        for (let i = 0; i < pages; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `Page ${i + 1}`);
+          dot.addEventListener('click', () => {
+            currentPage = i;
+            track.scrollTo({ left: i * getStepSize(), behavior: 'smooth' });
+          });
+          dotsWrap.appendChild(dot);
+        }
+      }
+
+      buildDots();
+      window.addEventListener('resize', buildDots);
+
+      prevBtn.addEventListener('click', () => {
+        currentPage = Math.max(0, currentPage - 1);
+        track.scrollTo({ left: currentPage * getStepSize(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentPage = Math.min(getTotalPages() - 1, currentPage + 1);
+        track.scrollTo({ left: currentPage * getStepSize(), behavior: 'smooth' });
+      });
+
+      track.addEventListener('scroll', () => {
+        const scrollLeft = track.scrollLeft;
+        const step = getStepSize();
+        const page = Math.round(scrollLeft / step);
+        currentPage = page;
+        dotsWrap.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === page));
+      }, { passive: true });
+    }
+
+    // ---- FORM FEEDBACK ----
+    const form = document.querySelector('.cf');
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = form.querySelector('.fsub');
+        const orig = btn.textContent;
+        btn.textContent = 'Demande envoyée !';
+        btn.style.background = '#2D7D46';
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.style.background = '';
+          btn.disabled = false;
+          form.reset();
+        }, 3500);
+      });
+    }
+  </script>
+</body>
+
+</html>
